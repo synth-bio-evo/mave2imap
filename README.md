@@ -9,17 +9,15 @@ This code is intended for 3D mapping of interface hotspots based on results from
 
 
 ### Install (Linux)  
-$ conda env create -f https://github.com/synth-bio-evo/maveimap_test.git
-(https://raw.githubusercontent.com/bioconda/bioconda-recipes/master/environment.yml) 
-
+$ conda env create -f https://github.com/synth-bio-evo/maveimap_test/blob/main/mave2imap.yml
 
 ### Testing  
-#### *1) :construction: Create a folder for testing and download testing files*    
+#### *1) Create a folder for testing and download testing files* :construction:    
 $ mkdir /tmp/test  
 $ cd /tmp/test  
 
 
-#### *2) :computer: Run mave2imap pipeline for each targeted region.*   
+#### *2) Run mave2imap pipeline for each targeted region.* :computer:   
 Exemple:  
 $ cd Asf1B+IP3/Asf1_N-Ter  
 $ mave2imap -i Asf1_N-ter.ini
@@ -31,7 +29,7 @@ $ mave2imap -i Asf1_C-ter.ini
 :microscope: The information copiled in the file, "result_thresh3_2_2_compare_conditions.out", is probably the most relevant to a classical user.
 
 
-#### *3)  :mag_right: Analyze results using jupyter notebook(s).*  
+#### *3)  Analyze results using jupyter notebook(s).* :mag_right:   
 - enter appropriate folder and launch jupyter-lab  
 
 $ cd ../analysis  
