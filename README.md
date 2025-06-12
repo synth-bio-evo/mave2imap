@@ -23,34 +23,38 @@ This code is intended for 3D mapping of interface hotspots based on results from
   
 ---  
 ### Install (Linux)  
-$ conda env create -f https://github.com/synth-bio-evo/maveimap/blob/main/mave2imap.yml
+$ conda env create -f https://github.com/synth-bio-evo/mave2imap/blob/main/mave2imap.yml
 
 ---
 ### Testing  
-> *Requires about >= 64 Gb RAM to process the full dataset. If you do not dispose of this amount of RAM you can create smaller .fastq.gz files by using the following command:*  
-> 
-> $ gunzip -cd \<file>.fastq.gz | head -n 1600000 | gzip > <file_400k_reads>.fastq.gz  
-> 
-> - *Replace "\<file>" by your filename*  
-> - *It will extract and compress 1,6x10⁶ lines from "\<file>.fastq.gz", corresponding to 4x10⁵ reads, and create  "<file_400k_reads>.fastq.gz"*
+*Requires about >= 64 Gb RAM to process the full dataset. If you do not dispose of this amount of RAM you can create smaller .fastq.gz files by using the following command:*  
+
+>gunzip -cd \<file>.fastq.gz | head -n 1600000 | gzip > <file_400k_reads>.fastq.gz  
+ 
+- *Replace "\<file>" by your filename*  
+- *It will extract and compress 1,6x10⁶ lines from "\<file>.fastq.gz", corresponding to 4x10⁵ reads, and create  "<file_400k_reads>.fastq.gz"*
 #### *1) Create a folder for testing and download testing files* :construction:    
-$ mkdir /tmp/test  
-$ cd /tmp/test  
+>mkdir /tmp/test  
+>cd /tmp/test  
+
 If you have aria2c installed (faster)  
-$ aria2c -j 16 \<link>  
+
+>aria2c -j 16 \<link>  
+
 Else  
-$ wget \<link> 
+
+>wget \<link> 
 
 #### *2) Run mave2imap pipeline for each targeted region.* :computer:   
 Exemple:  
-$ cd Asf1B+IP3/Asf1_N-Ter  
-$ mave2imap -i Asf1_N-ter.ini
-$ cd ../Asf1_C-Ter
-$ mave2imap -i Asf1_C-ter.ini  
+>cd Asf1B+IP3/Asf1_N-Ter  
+>mave2imap -i Asf1_N-ter.ini  
+>cd ../Asf1_C-Ter  
+>mave2imap -i Asf1_C-ter.ini  
 
  This will produce the data required for analysis and visualization using the proposed jupyter notebook.   
 
-> :microscope: The information copiled in the file, "result_thresh3_2_2_compare_conditions.out", is probably the most relevant to a classical user.
+:microscope: *The information available in the output file, "result_thresh3_2_2_compare_conditions.out", is probably the most relevant to a classical user.*
 
 
 #### *3)  Analyze results using jupyter notebook(s).* :mag_right:   
@@ -59,6 +63,7 @@ $ mave2imap -i Asf1_C-ter.ini
 $ cd ../analysis  
 $ jupyter-lab  
 - Choose mave2imap kernel  
+- If required edit the code according to your specific case (not required for the testing dataset) 
 - Click in "Run" (menu) => "Restart Kernel and Run All Cells"  
 
 > *The most perturbed positions should be indicated  below the last cell based on the defined threshold and you should be able to visualized/manipulated the 3D interactive complex (most perturbed regions are indicated by red gradient color)*
