@@ -2,6 +2,7 @@
 ![mave2imap!](mave2imap.png "mave2imap : graphical abstract")
 ==============================
 ### Table of contents
+
 - [mave2imap](#mave2imap)
 - [](#)
     - [Table of contents](#table-of-contents)
@@ -26,10 +27,19 @@ $ conda env create -f https://github.com/synth-bio-evo/maveimap/blob/main/mave2i
 
 ---
 ### Testing  
+> *Requires about >= 64 Gb RAM to process the full dataset. If you do not dispose of this amount of RAM you can create smaller .fastq.gz files by using the following command:*  
+> 
+> $ gunzip -cd \<file>.fastq.gz | head -n 1600000 | gzip > <file_400k_reads>.fastq.gz  
+> 
+> - *Replace "\<file>" by your filename*  
+> - *It will extract and compress 1,6x10⁶ lines from "\<file>.fastq.gz", corresponding to 4x10⁵ reads, and create  "<file_400k_reads>.fastq.gz"*
 #### *1) Create a folder for testing and download testing files* :construction:    
 $ mkdir /tmp/test  
 $ cd /tmp/test  
-
+If you have aria2c installed (faster)  
+$ aria2c -j 16 \<link>  
+Else  
+$ wget \<link> 
 
 #### *2) Run mave2imap pipeline for each targeted region.* :computer:   
 Exemple:  
