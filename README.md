@@ -17,7 +17,7 @@
 
 ---
 ### Description  
-This code is intended for 3D mapping of interface hotspots based on results from MAVE (Multiplexed Assays of Variant Effects) [See publication](#cite).  
+This code is intended for 3D mapping of interface hotspots based on results from MAVE (Multiplexed Assays of Variant Effects) [See publication](#citing-mave2imap).  
 
   
 ---  
