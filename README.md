@@ -9,16 +9,17 @@
     - [Description](#description)
     - [Install (Linux)](#install-linux)
     - [Testing](#testing)
-      - [*1) Create a folder for testing and download testing files* :construction:](#1-create-a-folder-for-testing-and-download-testing-files-construction)
+      - [*1) Create a folder to download required files and run the test* :construction:](#1-create-a-folder-to-download-required-files-and-run-the-test-construction)
       - [*2) Run mave2imap pipeline for each targeted region.* :computer:](#2-run-mave2imap-pipeline-for-each-targeted-region-computer)
       - [*3)  Analyze results using jupyter notebook(s).* :mag\_right:](#3--analyze-results-using-jupyter-notebooks-mag_right)
+  - [*The most perturbed positions should be indicated  below the last cell based on the defined threshold and you should be able to visualized/manipulated the 3D interactive complex (most perturbed regions are indicated by reddish gradient)*](#the-most-perturbed-positions-should-be-indicated--below-the-last-cell-based-on-the-defined-threshold-and-you-should-be-able-to-visualizedmanipulated-the-3d-interactive-complex-most-perturbed-regions-are-indicated-by-reddish-gradient)
     - [Citing mave2imap](#citing-mave2imap)
     - [Copyright](#copyright)
       - [Acknowledgements](#acknowledgements)
 
 ---
 ### Description  
-This code is intended for 3D mapping of interface hotspots based on results from MAVE (Multiplexed Assays of Variant Effects) [See publication](#citing-mave2imap).  
+This code is intended for 3D mapping of interface hotspots based on the most perturbed positions inferred from MAVE (Multiplexed Assays of Variant Effects) results. ([See publication](#citing-mave2imap))  
 
   
 ---  
@@ -33,7 +34,7 @@ $ conda env create -f https://github.com/synth-bio-evo/mave2imap/blob/main/mave2
  
 - *Replace "\<file>" by your filename*  
 - *It will extract and compress 1,6x10⁶ lines from "\<file>.fastq.gz", corresponding to 4x10⁵ reads, and create  "<file_400k_reads>.fastq.gz"*
-#### *1) Create a folder for testing and download testing files* :construction:    
+#### *1) Create a folder to download required files and run the test* :construction:    
 >mkdir /tmp/test  
 >cd /tmp/test  
 
@@ -58,15 +59,24 @@ Exemple:
 
 
 #### *3)  Analyze results using jupyter notebook(s).* :mag_right:   
-- enter appropriate folder and launch jupyter-lab  
+* enter appropriate folder and launch jupyter-lab  <br><br>
 
-$ cd ../analysis  
-$ jupyter-lab  
+for interface mapping:  
+> cd ../imap_notebook  <br>
+
+
+  for fitness assessement:  <br>
+
+  > cd ../fitness_notebook  <br><br>
+  
+  - for both  
+
+> jupyter-lab  
 - Choose mave2imap kernel  
 - If required edit the code according to your specific case (not required for the testing dataset) 
 - Click in "Run" (menu) => "Restart Kernel and Run All Cells"  
-
-> *The most perturbed positions should be indicated  below the last cell based on the defined threshold and you should be able to visualized/manipulated the 3D interactive complex (most perturbed regions are indicated by red gradient color)*
+<br>
+*The most perturbed positions should be indicated  below the last cell based on the defined threshold and you should be able to visualized/manipulated the 3D interactive complex (most perturbed regions are indicated by reddish gradient)*
 ---
 ### Citing mave2imap 
 "Publication is coming ..."
