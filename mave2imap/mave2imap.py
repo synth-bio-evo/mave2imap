@@ -108,6 +108,7 @@ def run_command(cmd):
     '''
     print(f"\n{'*' * 30}\n{datetime.now()}: Running command: '{cmd}'")
     sps_run(cmd, shell=True, check=True)
+    print(f"\n{datetime.now()}: Run ended")
 
 
 def gzip(file_path, action="extract"):
@@ -178,7 +179,7 @@ def main():
         else:
             ba = ba_l[1]
 
-        parser_cmd = f"""time mpirun -np {ncpus} python {exe_dir}/ReadParser.py -f {fastq} -o {
+        parser_cmd = f"""mpirun -np {ncpus} python {exe_dir}/ReadParser.py -f {fastq} -o {
             direction}_{            ba} -e {direction_l[n % 2].lower()} -r {region_index} -c {
             ini_file} --mpi"""
         run_command(parser_cmd)
@@ -193,7 +194,7 @@ def main():
         if even_odd != 0:
             # Combine assemblies using ReadAssembler
             assembly_out_fn = f'assembly_{ba.lower()}'
-            assembly_cmd = f"""time mpirun -np {ncpus} python {exe_dir}/ReadAssembler.py --mpi -f {
+            assembly_cmd = f"""mpirun -np {ncpus} python {exe_dir}/ReadAssembler.py --mpi -f {
                 direction_l[0]}_{ba} -r {direction_l[1]}_{ba} -b -o {assembly_out_fn} -c {
                 ini_file} -t {ba.lower()}"""
             run_command(assembly_cmd)
@@ -201,11 +202,11 @@ def main():
     # Combine assemblies using CombineMultiExp script
     print(f"""Will combine assemblies using [THRESHOLDS] filter = {thresh_filter
                                                                  }""")
-    combiner_cmd = f"""time mpirun -np {ncpus} python {exe_dir
+    combiner_cmd = f"""mpirun -np {ncpus} python {exe_dir
         }/CombineMultiExp.py -b assembly_{ba_l[0].lower()} -a assembly_{ba_l[1].lower()} -o result_thresh{
         thresh_filter.replace(',', '_')} -c {ini_file} -t {thresh_filter}"""
     run_command(combiner_cmd)
-    combiner_cmd = f"""time mpirun -np {ncpus} python {exe_dir}/CombineMultiExp.py -b assembly_{
+    combiner_cmd = f"""mpirun -np {ncpus} python {exe_dir}/CombineMultiExp.py -b assembly_{
         ba_l[0].lower()} -a assembly_{ba_l[1].lower()} -o result_sum_all -c {
         ini_file} -t sum_all"""
     run_command(combiner_cmd)
