@@ -7,7 +7,7 @@
 - [](#)
     - [Table of contents](#table-of-contents)
     - [Description](#description)
-    - [Install (Linux)](#install-linux)
+    - [Install mave2imap conda environment](#install-mave2imap-conda-environment)
     - [Testing](#testing)
       - [*1) Create a folder to download required data and run the test* :construction:](#1-create-a-folder-to-download-required-data-and-run-the-test-construction)
       - [*2) Run mave2imap pipeline for each targeted region.* :computer:](#2-run-mave2imap-pipeline-for-each-targeted-region-computer)
@@ -22,8 +22,8 @@ This code is intended for 3D mapping of interface hotspots based on the most per
 
   
 ---  
-### Install (Linux)  
-$ conda env create -f https://github.com/synth-bio-evo/mave2imap/blob/main/mave2imap.yml
+### Install mave2imap conda environment  
+$ conda env create -f https://raw.githubusercontent.com/synth-bio-evo/mave2imap/main/mave2imap.yml  
 
 ---
 ### Testing  
@@ -33,7 +33,10 @@ If you do not dispose of this amount of RAM you can create smaller .fastq.gz fil
 >gunzip -cd \<file>.fastq.gz | head -n 1600000 | gzip > <file_400k_reads>.fastq.gz  
  
 - *Replace "\<file>" by your filename*  
-- *It will extract and compress 1,6x10⁶ lines from "\<file>.fastq.gz", corresponding to 4x10⁵ reads, and create  "<file_400k_reads>.fastq.gz"*
+- *It will extract and compress 1,6x10⁶ lines from "\<file>.fastq.gz", corresponding to 4x10⁵ reads, and create  "<file_400k_reads>.fastq.gz"*  
+
+<br>  
+
 #### *1) Create a folder to download required data and run the test* :construction:    
 >mkdir /tmp/test  
 >cd /tmp/test  
@@ -50,7 +53,9 @@ else,
 
 Uncompress the .tar.gz file 
 
->tar -xvzf Asf1B+IP3.tar.gz
+>tar -xvzf Asf1B+IP3.tar.gz  
+
+<br>  
 
 #### *2) Run mave2imap pipeline for each targeted region.* :computer:   
 Example:  
@@ -61,8 +66,7 @@ Example:
 
  This will produce the data required for analysis and visualization using the proposed jupyter notebook.   
 
-:microscope: *The information available in the output file, "result_thresh3_2_2_compare_conditions.out", is probably the most relevant to a classical user.*
-
+:microscope: *The information available in the output file, "result_thresh3_2_2_compare_conditions.out", is probably the most relevant to a classical user.*  <br>  <br>
 
 #### *3)  Analyze results using jupyter notebook(s).* :mag_right:   
 
@@ -76,7 +80,6 @@ Interface mapping (imap) and fitness assessment notebooks are available in the c
 - Choose mave2imap kernel  
 - If required edit the code according to your specific case (not required for the testing dataset)  
 - Click in "Run" (menu) => "Restart Kernel and Run All Cells"  
-
   - If you are running the imap notebook, the most perturbed positions should be indicated below the last cell based on the defined threshold, and you should be able to visualized/manipulated the 3D interactive complex (most perturbed regions are indicated by reddish gradient). 
   - If you are running the fitness notebook, by mutation results will be outputted to a CSV file.
 
