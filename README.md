@@ -38,20 +38,22 @@ If you do not dispose of this amount of RAM you can create smaller .fastq.gz fil
 >mkdir /tmp/test  
 >cd /tmp/test  
 
-If you have aria2c installed (faster)  
+Data, notebooks used to produce the manuscript figures, results, and datasets are available at Zenodo (doi: 10.5281/zenodo.15690360; https://zenodo.org/records/15690360). Below you will find an exemple about how to use them.  
 
->aria2c -j 16 \<link>  
+If you have aria2c installed (faster):  
 
-Else  
+>aria2c -j 16 https://zenodo.org/records/15690361/files/Asf1B+IP3.tar.gz?download=1  
 
->wget \<link> 
+else,  
+
+>wget https://zenodo.org/records/15690361/files/Asf1B+IP3.tar.gz?download=1
 
 Uncompress the .tar.gz file 
 
 >tar -xvzf Asf1B+IP3.tar.gz
 
 #### *2) Run mave2imap pipeline for each targeted region.* :computer:   
-Exemple:  
+Example:  
 >cd Asf1B+IP3/Asf1_N-Ter  
 >mave2imap -i Asf1_N-ter.ini  
 >cd ../Asf1_C-Ter  
@@ -63,24 +65,20 @@ Exemple:
 
 
 #### *3)  Analyze results using jupyter notebook(s).* :mag_right:   
-* enter appropriate folder and launch jupyter-lab  <br><br>
 
-for interface mapping:  
-> cd ../imap_notebook  <br>
+* Enter main folder and launch jupyter-lab  
+> cd /tmp/test/Asf1B+IP3  
+> jupyter-lab
+<br>
 
-
-  for fitness assessement:  <br>
-
-  > cd ../fitness_notebook  <br><br>
-
-  - for both  
-
-> jupyter-lab  
+Interface mapping (imap) and fitness assessment notebooks are available in the corresponding folders  <br> 
+- Open the notebook
 - Choose mave2imap kernel  
 - If required edit the code according to your specific case (not required for the testing dataset)  
 - Click in "Run" (menu) => "Restart Kernel and Run All Cells"  
 
-The most perturbed positions should be indicated  below the last cell based on the defined threshold and you should be able to visualized/manipulated the 3D interactive complex (most perturbed regions are indicated by reddish gradient)
+  - If you are running the imap notebook, the most perturbed positions should be indicated below the last cell based on the defined threshold, and you should be able to visualized/manipulated the 3D interactive complex (most perturbed regions are indicated by reddish gradient). 
+  - If you are running the fitness notebook, by mutation results will be outputted to a CSV file.
 
 ---
 ### Citing mave2imap 
