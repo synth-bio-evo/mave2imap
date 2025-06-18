@@ -1,11 +1,10 @@
 [build-system]
 requires = ["setuptools>=66.0"]
 build-backend = "setuptools.build_meta"
-# Self-descriptive entries which should always be present
-# https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+
 [project]
 name = "mave2imap"
-version = "1.0.0.0.3"
+version = "1.0.0.0.4"
 description = "This project is intended for infering and mapping interface hotspots based on results from MAVE (Multiplexed Assays of Variant Effects)."
 readme = "README.md"
 license = "MIT"
@@ -16,7 +15,6 @@ authors = [
     { name = "Raphael Guerois", email = "raphael.guerois@cea.fr" },
 ]
 
-# See https://pypi.org/classifiers/
 classifiers = [
     "Programming Language :: Python :: 3",
 ]
@@ -33,7 +31,6 @@ dependencies = [
     "nglview==3.1.2",
     "notebook==7.3.2",
     "h5py==3.11.0",
-#  "pytest>=6.1.2",
 ]
 
 [project.scripts]
