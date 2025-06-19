@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mave2imap"
-version = "1.0.0.0.4"
+version = "1.0.0.0.5"
 description = "This project is intended for infering and mapping interface hotspots based on results from MAVE (Multiplexed Assays of Variant Effects)."
 readme = "README.md"
 license = "MIT"
