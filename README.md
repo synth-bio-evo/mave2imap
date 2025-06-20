@@ -23,7 +23,13 @@ This code is intended for 3D mapping of interface hotspots based on the most per
   
 ---  
 ### Install mave2imap conda environment  
-$ conda env create -f https://raw.githubusercontent.com/synth-bio-evo/mave2imap/main/mave2imap.yml  
+> conda env create -f https://raw.githubusercontent.com/synth-bio-evo/mave2imap/main/mave2imap.yml  
+
+If you prefer to use mamba instead of conda to create the environment, you should download mave2imap.yml file first then create the environment from the local file:
+>cd /tmp  
+>wget https://raw.githubusercontent.com/synth-bio-evo/mave2imap/main/mave2imap.yml  
+> mamba env create -f mave2imap.yml  
+
 
 ---
 ### Testing  
@@ -59,6 +65,7 @@ Uncompress the .tar.gz file
 
 #### *2) Run mave2imap pipeline for each targeted region.* :computer:   
 Example:  
+>conda activate mave2imap  
 >cd Asf1B+IP3/Asf1_N-Ter  
 >mave2imap -i Asf1_N-ter.ini  
 >cd ../Asf1_C-Ter  
