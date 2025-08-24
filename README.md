@@ -28,21 +28,11 @@ This code is intended for 3D mapping of interface hotspots based on the most per
 If you prefer to use mamba instead of conda to create the environment, you should download mave2imap.yml file first then create the environment from the local file:
 >cd /tmp  
 >wget https://raw.githubusercontent.com/synth-bio-evo/mave2imap/main/mave2imap.yml  
-> mamba env create -f mave2imap.yml  
+>mamba env create -f mave2imap.yml  
 
 
 ---
 ### Testing  
-*Requires about >= 64 Gb RAM to process the full dataset.  
-If you do not dispose of this amount of RAM you can create smaller .fastq.gz files by using the following command:*  
-
->gunzip -cd \<file>.fastq.gz | head -n 1600000 | gzip > <file_400k_reads>.fastq.gz  
- 
-- *Replace "\<file>" by your filename*  
-- *It will extract and compress 1,6x10⁶ lines from "\<file>.fastq.gz", corresponding to 4x10⁵ reads, and create  "<file_400k_reads>.fastq.gz"*  
-
-<br>  
-
 #### *1) Create a folder to download required data and run the test* :construction:    
 >mkdir /tmp/test  
 >cd /tmp/test  
@@ -55,7 +45,7 @@ If you have aria2c installed (faster):
 
 else,  
 
->wget https://zenodo.org/records/15690361/files/Asf1B+IP3.tar.gz?download=1
+>wget https://zenodo.org/records/15690361/files/Asf1B+IP3.tar.gz
 
 Uncompress the .tar.gz file 
 
@@ -63,7 +53,7 @@ Uncompress the .tar.gz file
 
 <br>  
 
-#### *2) Run mave2imap pipeline for each targeted region.* :computer:   
+#### *2) Run mave2imap pipeline for each targeted region.* :computer: 
 Example:  
 >conda activate mave2imap  
 >cd Asf1B+IP3/Asf1_N-Ter  
@@ -73,7 +63,16 @@ Example:
 
  This will produce the data required for analysis and visualization using the proposed jupyter notebook.   
 
-:microscope: *The information available in the output file, "result_thresh3_2_2_compare_conditions.out", is probably the most relevant to a classical user.*  <br>  <br>
+:microscope: *The information available in the output file, "result_thresh3_2_2_compare_conditions.out", is probably the most relevant to a classical user.*  <br> 
+
+*The porposed example run requires ~ 64 Gb of free RAM to process the full dataset.  
+If you do not dispose of this amount of RAM you can create smaller dataset files by using the following command:*  
+
+>gunzip -cd Asf1B+IP3.fastq.gz | head -n 6000000 | gzip > Asf1B+IP3_1.5M_reads.fastq.gz  
+ 
+- *It will extract and compress 6x10⁶ lines from "Asf1B+IP3.fastq.gz", corresponding to 1.5x10⁶ reads, and create compressed file "Asf1B+IP3_1.5M_reads.fastq.gz". Processing the resulting file should require less than 8 Gb free RAM.*  
+
+<br>  
 
 #### *3)  Analyze results using jupyter notebook(s).* :mag_right:   
 
@@ -83,11 +82,11 @@ Example:
 <br>
 
 Interface mapping (imap) and fitness assessment notebooks are available in the corresponding folders  <br> 
-- Open the notebook
+- Open the notebook available in "imap_notebook" or "fitness_notebook" folder 
 - Choose mave2imap kernel  
 - If required edit the code according to your specific case (not required for the testing dataset)  
 - Click in "Run" (menu) => "Restart Kernel and Run All Cells"  
-  - If you are running the imap notebook, the most perturbed positions should be indicated below the last cell based on the defined threshold, and you should be able to visualized/manipulated the 3D interactive complex (most perturbed regions are indicated by reddish gradient). 
+  - If you are running the imap notebook, the most perturbed positions should be indicated below the last cell based on the defined threshold, and you should be able to visualized/manipulated the 3D interactive complex (most perturbed regions are indicated by reddish gradient). The results will be outputted to a pdb file where B-factors column values correspond to perturbation scores. 
   - If you are running the fitness notebook, by mutation results will be outputted to a CSV file.
 
 ---

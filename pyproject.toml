@@ -10,7 +10,6 @@ readme = "README.md"
 license = "MIT"
 authors = [
     { name = "Aravindan Arun Nadaradjane", email = "arunnatrajanravi@gmail.com" },
-    { name = "Juan Pablo Guzmán Álvarez", email = "jpguz0709@hotmail.com"},
     { name = "Oscar H.P. Ramos", email = "oscar.pereira-ramos@cea.fr" },
     { name = "Raphael Guerois", email = "raphael.guerois@cea.fr" },
 ]
